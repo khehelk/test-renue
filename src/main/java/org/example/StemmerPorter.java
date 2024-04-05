@@ -71,11 +71,21 @@ public class StemmerPorter{
 
         for (String part : removePunct(line)) {
             if (!part.isEmpty()) {
-                stemmedLine.add(StemmerPorter.stem(part.toLowerCase()));
+                stemmedLine.add(StemmerPorter.stemmingProcess(part.toLowerCase()));
             }
         }
 
         return stemmedLine;
+    }
+
+    private static String stemmingProcess(String word) {
+        String next = stem(word);
+        String prev = word;
+        while (!prev.equals(next)) {
+            prev = next;
+            next = stem(next);
+        }
+        return next;
     }
 
     private static String[] removePunct(String line){
