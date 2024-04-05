@@ -71,5 +71,6 @@ public class TextClassifier {
 
     public void loadReports() {
         this.reports = new ReportData(properties.getDataFilePath());
+        System.out.println(this.reports.getReports());
     }
 }

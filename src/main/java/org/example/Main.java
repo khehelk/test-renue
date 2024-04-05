@@ -26,7 +26,11 @@ public class Main {
                 case "--output-file" -> properties.setOutputFilePath(args[++i]);
             }
         }
-
+        if (!properties.isAssigned()) {
+            properties.setDataFilePath("src/main/resources/csv.csv");
+            properties.setInputFilePath("src/main/resources/input.txt");
+            properties.setOutputFilePath("src/main/resources/output.json");
+        }
         if (!properties.isAssigned()) {
             throw new IllegalArgumentException("Не все данные получены");
         }
