@@ -28,9 +28,7 @@ public class Main {
         }
 
         if (!properties.isAssigned()) {
-            properties.setDataFilePath("src/main/resources/csv.csv");
-            properties.setInputFilePath("src/main/resources/input.txt");
-            properties.setOutputFilePath("src/main/resources/output.json");
+            throw new IllegalArgumentException("Не все данные получены");
         }
         return properties;
     }
